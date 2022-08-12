@@ -6,13 +6,15 @@ import mostafa.projects.dagger2.di.components.DagComponent
 import mostafa.projects.dagger2.di.components.DaggerDagComponent
 import mostafa.projects.dagger2.di.modules.DagModule
 
-class DaggerApp: MultiDexApplication() {
+class DaggerApp : MultiDexApplication() {
 
-    val component: DagComponent by lazy {
+    private val component: DagComponent by lazy {
         DaggerDagComponent.builder()
             .dagModule(DagModule(this))
             .build()
     }
+
+    fun appComponent(): DagComponent = component
     override fun onCreate() {
         super.onCreate()
     }

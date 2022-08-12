@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dagger2</string>
+
+    <string name="product_title">عنوان المنتج</string>
+    <string name="product_price">سعر المنتج</string>
+    <string name="curr">جنيه</string>
+
+</resources>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="mostafa.projects.dagger2">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".DaggerApp"
         android:allowBackup="true"
