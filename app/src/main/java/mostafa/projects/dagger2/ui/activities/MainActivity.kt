@@ -16,19 +16,23 @@ import javax.inject.Inject
 class MainActivity : BaseActivity() {
 
     private lateinit var productsRecyclerView: RecyclerView
-    private lateinit var productsAdapter: ProductsAdapter
-    private var productsList:ArrayList<Product> = ArrayList()
+
+    @Inject
+    lateinit var productsAdapter: ProductsAdapter
+
+
+    var productsList:ArrayList<Product> = ArrayList()
 
     @Inject
     lateinit var sharedPreferences: SharedPreferences
 
     private lateinit var productsViewModel: ProductsViewModel
     override fun init() {
-        productsAdapter = ProductsAdapter(productsList)
         productsViewModel = ViewModelProvider(this)[ProductsViewModel::class.java]
         dagComponent().inject(this)
 
         sharedPreferences.edit()?.putString(TEST_VALUE_NAME, "mostafa elsayed gad")?.apply()
+        productsAdapter.setProductsList(productsList)
 
         val name = sharedPreferences.getString(TEST_VALUE_NAME, "")
         Log.i(TEST_VALUE_NAME, "$name")

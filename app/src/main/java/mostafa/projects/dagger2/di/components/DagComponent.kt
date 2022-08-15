@@ -10,7 +10,7 @@ import mostafa.projects.dagger2.network.vm.ProductsViewModel
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [DagModule::class , NetworkModule::class])
+@Component(modules = [DagModule::class , NetworkModule::class ])
 interface DagComponent {
     fun inject(productsViewModel: ProductsViewModel)
     fun inject(mainActivity: MainActivity)

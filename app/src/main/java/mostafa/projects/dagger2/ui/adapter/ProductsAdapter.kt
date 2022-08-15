@@ -12,17 +12,21 @@ import com.apiTask.AppsSquare.Model.Product
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import mostafa.projects.dagger2.R
+import javax.inject.Inject
 
-class ProductsAdapter(private var products: ArrayList<Product>) :
+class ProductsAdapter @Inject constructor(var products: ArrayList<Product>) :
     RecyclerView.Adapter<ProductsAdapter.ProductHolder>() {
 
 
     class ProductHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var productImg: ImageView? = itemView.findViewById(R.id.productImg)
         var productTitleTxt: TextView? = itemView.findViewById(R.id.productTitleTxt)
-        var productPriceTxt:TextView = itemView.findViewById(R.id.productPriceTxt)
+        var productPriceTxt: TextView = itemView.findViewById(R.id.productPriceTxt)
     }
 
+    fun setProductsList(_products: ArrayList<Product>){
+        this.products = _products
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         return ProductHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.products_item, parent, false)

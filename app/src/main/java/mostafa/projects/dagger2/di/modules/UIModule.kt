@@ -14,23 +14,13 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
-class DagModule(val daggerApp: DaggerApp) {
+class UIModule() {
 
 
-    @Singleton
-    @Provides
-    fun context() = daggerApp.applicationContext!!
 
     @Provides
     @Singleton
-    fun provideApplication() = daggerApp
-
-    @Provides
-    @Singleton
-    fun sharedPref(context: Context): SharedPreferences = context.getSharedPreferences(
-        SHARED_NAME,
-        Context.MODE_PRIVATE
-    )
-
+    fun provideProductsAdapter(products:ArrayList<Product>): ProductsAdapter =
+        ProductsAdapter(products = products)
 
 }
