@@ -20,7 +20,7 @@ class UIModule() {
 
     @Provides
     @Singleton
-    fun provideProductsAdapter(products:ArrayList<Product>): ProductsAdapter =
-        ProductsAdapter(products = products)
+    fun provideProductsAdapter(context: Context): ProductsAdapter =
+        ProductsAdapter(context = context)
 
 }
